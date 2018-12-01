@@ -32,7 +32,7 @@ bot.on("message", async message => {
   if (cmd === `${prefix}people`){
     message.channel.send(new Discord.Attachment('./photos/people.png')).catch(console.error);
   }
-  if (cmd === `${prefix}resolve2`){
+  if (cmd === `${prefix}resolve`){
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
 });
