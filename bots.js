@@ -19,6 +19,9 @@ bot.on("message", async message => {
   if (cmd === `${prefix}ping`){
     message.channel.send("Pong!");
   }
+  if (cmd === `${prefix}ding`){
+    message.channel.send("Dong!");
+  }
 });
 
 bot.login(process.env.token);
