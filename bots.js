@@ -11,7 +11,7 @@ bot.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
 
-  let prefix = '!';
+  let prefix = '/';
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -24,6 +24,9 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}pika`){
     message.channel.send(new Discord.Attachment('./photos/pika.png')).catch(console.error);
+  }
+  if (cmd === `${prefix}bork`){
+    message.channel.send(new Discord.Attachment('./photos/bork.jpeg')).catch(console.error);
   }
 });
 
