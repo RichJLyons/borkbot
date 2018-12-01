@@ -26,6 +26,5 @@ bot.on("message", async message => {
     message.channel.send(new Discord.Attachment('./photos/pika.png') )
 .catch(console.error);
 });
-});
 
 bot.login(process.env.token);
