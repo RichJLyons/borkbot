@@ -41,7 +41,7 @@ bot.on("message", async message => {
   if (cmd === `${prefix}quote`){
     fetch(api)
         .then(res => res.json())
-        .then(json => console.log(json));
+        .then(json => console.log(json.stringify(body)));
   }
 });
 
