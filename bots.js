@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
+const api = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+const fetch = require("node-fetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
-//var quotes = fs.readFileSync('cookie.2.txt').toString().split("%%");
-//quotes = quotes.filter(a => a.includes("--"));
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -39,8 +39,7 @@ bot.on("message", async message => {
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
   if (cmd === `${prefix}quote`){
-    //message.channel.send(quotes[Math.floor(Math.random()*quotes.length)]);
-    message.channel.send($.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {$("body").append(a[0].content + "<p>— " + a[0].title + "</p>")}));
+  
   }
 });
 
