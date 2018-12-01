@@ -23,8 +23,7 @@ bot.on("message", async message => {
     message.channel.send("Dong!");
   }
   if (cmd === `${prefix}pika`){
-    message.channel.send(new Discord.Attachment('./photos/pika.png') )
-.catch(console.error);
+    message.channel.send(new Discord.Attachment('./photos/pika.png')).catch(console.error);
 });
 
 bot.login(process.env.token);
