@@ -41,11 +41,11 @@ bot.on("message", async message => {
   if (cmd === `${prefix}quote`){
       snekfetch.get(api).then(r => {
           let body = r.body;
+          let entry = body.find(post => !isNaN(post.ID));
           let embed = new Discord.RichEmbed()
-              .setAuthor(body.title)
-              .setDescription(body.content)
-              .addField("Auther ID", embed.userId)
-              .setFooter('Post ID: " + body.ID);
+              .setAuthor(entry.title)
+              .setDescription(entry.content)
+              .setFooter('Post ID: " + entry.ID);
            message.channel.send({embed: embed});
       });
   }
