@@ -39,7 +39,13 @@ bot.on("message", async message => {
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
   if (cmd === `${prefix}quote`){
-    fetch(api).then(res => res.json(body));
+    fetch(api).then(res => {
+      console.log(res.ok);
+      console.log(res.status);
+      console.log(res.statusText);
+      console.log(res.headers.raw());
+      console.log(res.headers.get('content-type'));
+    });
   }
 });
 
