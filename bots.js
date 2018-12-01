@@ -24,6 +24,7 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}pika`){
     message.channel.send(new Discord.Attachment('./photos/pika.png')).catch(console.error);
+  }
 });
 
 bot.login(process.env.token);
