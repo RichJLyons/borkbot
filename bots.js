@@ -23,7 +23,7 @@ bot.on("message", async message => {
     message.channel.send("Dong!");
   }
   if (cmd === `${prefix}pika`){
-    message.channel.send({files: ["./photos/pika.png"]});
+    message.channel.send('',{files: ['./photos/pika.png']});
 });
 });
 
