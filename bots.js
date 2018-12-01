@@ -39,7 +39,11 @@ bot.on("message", async message => {
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
   if (cmd === `${prefix}quote`){
-      snekfetch.get(api).then(r => console.log(r.body));
+      snekfetch.get(api).then(r => {
+          let body = r.body;
+          let entry = body.title;
+          console.log(entry);
+      });
   }
 });
 
