@@ -17,7 +17,7 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
   if (cmd === `${prefix}ping`){
-    message.channel.send("Pong!");
+    message.channel.send("I love Sophia. I think Sophia has a bomb ass p***y! oh snap! language. language. but foh realz. she does though. periodt.");
   }
 });
 
