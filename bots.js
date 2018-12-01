@@ -40,11 +40,7 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}quote`){
     fetch(api).then(res => {
-      console.log(res.ok);
-      console.log(res.status);
-      console.log(res.statusText);
-      console.log(res.headers.raw());
-      console.log(res.headers.get('content-type'));
+      console.log(res.body);
     });
   }
 });
