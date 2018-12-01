@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
-var quotes = fs.readFileSync('grouchy.txt').toString().split("--");
+var quotes = fs.readFileSync('cookies.2.txt').toString().split("%%");
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
