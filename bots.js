@@ -22,6 +22,9 @@ bot.on("message", async message => {
   if (cmd === `${prefix}ding`){
     message.channel.send("Dong!");
   }
+  if (cmd === `${prefix}pika`){
+    message.channel.send({files: ./photos/pika.png});
+});
 });
 
 bot.login(process.env.token);
