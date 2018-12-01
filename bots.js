@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
+var quotes = fs.readFileSync('quotes.txt').toString().split("\n\n");
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -35,6 +36,9 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}resolve`){
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
+  }
+  if (cmd === `${prefix}quote`){
+    message.channel.send(quotes[Math.floor(Math.random()*quotes.length)]);
   }
 });
 
