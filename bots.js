@@ -40,7 +40,7 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}quote`){
     fetch(api).then(res => {
-        let body = res.body;
+        let body = res.title;
         message.channel.send(body);
     }); 
   }
