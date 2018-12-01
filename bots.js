@@ -45,7 +45,6 @@ bot.on("message", async message => {
           let embed = new Discord.RichEmbed()
               .setAuthor(entry.title)
               .setDescription(entry.content)
-              .setFooter('Post ID: " + entry.ID);
            message.channel.send({embed: embed});
       });
   }
