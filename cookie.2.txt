@@ -1,14 +1,3 @@
-Article 271 of alt.sources:
-Path: santra!tut!draken!kth!enea!mcvax!uunet!nuchat!sugar!karl
-From: karl@sugar.uu.net (Karl Lehenbauer)
-Newsgroups: alt.sources
-Subject: karl's fortune cookie file - part 2 of 6
-Message-ID: <3279@sugar.uu.net>
-Date: 14 Jan 89 15:38:12 GMT
-Organization: Sugar Land Unix - Houston, TX
-Lines: 1005
-
------------ cut here, don't forget to strip junk at the end, too -------------
 "You know, of course, that the Tasmanians, who never committed adultery, are
 now extinct."
 - M. Somerset Maugham
@@ -1008,11 +997,6 @@ awareness of the great goals for Man and the society he conspired to erect."
 purely materialistic things.  Today we admire Athens, visit it, preserve the
 old temples, yet we hardly ever set foot in Corinth."
 - Dr. Harold Urey, Nobel Laureate in chemistry
-%%
--- 
--- uunet!sugar!karl  | "We've been following your progress with considerable 
--- karl@sugar.uu.net |  interest, not to say contempt."  -- Zaphod Beeblebrox IV
--- Usenet BBS (713) 438-5018
 
 
 
