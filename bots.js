@@ -26,7 +26,7 @@ bot.on("message", async message => {
     message.channel.send(new Discord.Attachment('./photos/pika.png')).catch(console.error);
   }
   if (cmd === `${prefix}bork`){
-    message.channel.send(new Discord.Attachment('./photos/bork.jpeg')).catch(console.error);
+    message.channel.send(new Discord.Attachment('./photos/bork.jpg')).catch(console.error);
   }
 });
 
