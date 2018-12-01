@@ -41,8 +41,12 @@ bot.on("message", async message => {
   if (cmd === `${prefix}quote`){
       snekfetch.get(api).then(r => {
           let body = r.body;
-          let entry = body.title;
-          console.log(entry);
+          let embed = new Discord.RichEmbed()
+              .setAuthor(body.title)
+              .setDescription(body.content)
+              .addField("Auther ID", embed.userId)
+              .setFooter('Post ID: " + body.ID);
+           message.channel.send({embed: embed});
       });
   }
 });
