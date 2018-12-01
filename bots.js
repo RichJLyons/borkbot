@@ -39,9 +39,10 @@ bot.on("message", async message => {
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
   if (cmd === `${prefix}quote`){
-    fetch(api)
-        .then(res => res.json())
-        .then(json => console.log(res));
+    fetch(api).then(res => {
+        let body = res.body;
+        message.channel.send(body);
+    }); 
   }
 });
 
