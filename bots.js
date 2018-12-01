@@ -42,7 +42,7 @@ bot.on("message", async message => {
     fetch(api)
         .then(res => res.json())
         //.then(json => console.log(json.content));
-    console.log(json);
+    console.log(res);
   }
 });
 
