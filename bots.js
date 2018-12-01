@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const api = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
-const fetch = require("node-fetch");
+const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
 
@@ -39,10 +39,7 @@ bot.on("message", async message => {
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
   if (cmd === `${prefix}quote`){
-    fetch(api).then(res => {
-        let body = res.title;
-        message.channel.send(body);
-    }); 
+      snekfetch.get(api).then(console.log);
   }
 });
 
