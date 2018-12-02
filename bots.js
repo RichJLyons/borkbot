@@ -50,7 +50,7 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}spiderman`){
-    message.channel.send(new Discord.Attachment('./spider-man/Spider-Man/'1.png')).catch(console.error);
+    message.channel.send(new Discord.Attachment('./spider-man/Spider-Man/1.png')).catch(console.error);
   }
 });
 
