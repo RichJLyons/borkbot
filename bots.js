@@ -32,7 +32,11 @@ bot.on("message", async message => {
         comGrid = comGrid + "\n";
       }
     }
-    message.channel.send("Here are the current commands: "+comGrid);
+    const embed = new Discord.RichEmbed()
+      .setTitle("Here are the current commands:")
+      .setDescription(comGrid);
+    //message.channel.send("Here are the current commands: "+comGrid);
+    message.channel.send({embed});
   }
   if (cmd === `${prefix}ping`){
     message.channel.send("Pong!");
