@@ -44,7 +44,7 @@ bot.on("message", async message => {
           let entry = body.find(post => !isNaN(post.ID));
           let embed = new Discord.RichEmbed()
               .setAuthor(entry.title)
-              .setDescription(entry.content)
+              .setDescription($substring(entry.content,3,7)
            message.channel.send({embed: embed});
       });
   }
