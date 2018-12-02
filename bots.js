@@ -4,7 +4,7 @@ const api = "https://talaikis.com/api/quotes/random/";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
-var commands = ["ping","ding","pika","bork","people","resolve","quote","spidey"];
+var commands = ["ping","ding","pika","bork","people","resolve","quote","pups"];
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
