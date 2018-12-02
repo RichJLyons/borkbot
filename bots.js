@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const api = "https://talaikis.com/api/quotes/random/";
 const snekfetch = require("snekfetch");
-const randomFile = require('select-random-file');
+const randomFile = require("select-random-file");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
 
@@ -51,11 +51,9 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}spiderman`){
-    const dir = '/spider-man/Memes'
-    randomFile(dir, (err, file) => {
-        console.log(`The random file is: ${file}.`)
-    })
-    //message.channel.send(new Discord.Attachment('./spider-man/Memes/1.png')).catch(console.error);
+    var files = fs.readdirSync('/spider-man/Memes/')
+    let chosenFile = files[Math.floor(Math.random() * files.length)] 
+    message.channel.send(new Discord.Attachment('/spider-man/Memes/'+chosenFile)).catch(console.error);
   }
 });
 
