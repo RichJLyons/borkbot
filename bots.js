@@ -49,6 +49,9 @@ bot.on("message", async message => {
           //console.log(body);
       });
   }
+  if (cmd === `${prefix}spiderman`){
+    message.channel.send(new Discord.Attachment('./spider-man/Spider-Man/'+(Math.floor((Math.random()*90)+1)+'.png')).catch(console.error);
+  }
 });
 
 bot.login(process.env.token);
