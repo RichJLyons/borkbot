@@ -3,6 +3,7 @@ const bot = new Discord.Client({disableEveryone: true});
 const api = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
+var str = require('str');
 var items = fs.readFileSync('DD.txt').toString().split(";");
 
 bot.on("ready", async () => {
