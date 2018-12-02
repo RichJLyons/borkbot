@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const api = "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
+const api = "https://talaikis.com/api/quotes/random/";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
@@ -41,15 +41,11 @@ bot.on("message", async message => {
   if (cmd === `${prefix}quote`){
       snekfetch.get(api).then(r => {
           let body = r.body;
-          console.log(body);
-          //let entry = body.find(post => !isNaN(post.ID));
-          //let entry = body.find(post => isNaN(post.quoteAuthor));
-          //let embed = new Discord.RichEmbed()
-              //.setAuthor(entry.title)
-          //    .setAuthor(entry.quoteAuthor)
-              //.setDescription(entry.content.toString().slice(3,-6).replace("\u2026","...").replace("&#8217;","\'").replace("&#8220;","\"").replace("&#8221;","\""))
-          //    .setDescription(entry.quoteTest)
-          //message.channel.send({embed: embed});
+          let entry = body.find(post => isNaN(post.author));
+          let embed = new Discord.RichEmbed()
+              .setAuthor(entry.author)
+              .setDescription(entry.quote)
+          message.channel.send({embed: embed});
       });
   }
 });
