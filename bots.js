@@ -52,10 +52,7 @@ bot.on("message", async message => {
   if (cmd === `${prefix}spiderman`){
     var files = fs.readdirSync('./spider-man/Memes/')
     let chosenFile = files[Math.floor(Math.random()*files.length)] 
-    let embed = new Discord.RichEmbed()
-        .setImage('./spider-man/Memes/'+chosenFile);
-    //message.channel.send(new Discord.Attachment('./spider-man/Memes/'+chosenFile)).catch(console.error);
-    message.channel.send({embed});
+    message.channel.send(new Discord.Attachment('./spider-man/Memes/'+chosenFile)).catch(console.error);
   }
 });
 
