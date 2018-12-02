@@ -50,9 +50,9 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}spiderman`){
-    var files = fs.readdirSync('/spider-man/Memes/')
-    let chosenFile = files[Math.floor(Math.random() * files.length)] 
-    message.channel.send(new Discord.Attachment('/spider-man/Memes/'+chosenFile)).catch(console.error);
+    var files = fs.readdirSync('./spider-man/Memes/')
+    let chosenFile = files[Math.floor(Math.random()*files.length)] 
+    message.channel.send(new Discord.Attachment('./spider-man/Memes/'+chosenFile)).catch(console.error);
   }
 });
 
