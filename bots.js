@@ -22,9 +22,9 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
   if (cmd === `${prefix}help`){
-    let comGrid = "";
+    let comGrid = "\n";
     for (var i in commands) {
-      comGrid = comGrid + i+"\n";
+      comGrid = comGrid + commands[i]+"\n";
     }
     message.channel.send("Here are the current commands: "+comGrid);
   }
