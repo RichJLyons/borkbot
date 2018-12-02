@@ -26,7 +26,7 @@ bot.on("message", async message => {
     for (var i in commands) {
       comGrid = comGrid + " /"+commands[i]+" ";
       for (var j=1; j < (20-commands[i].length);j++) {
-          comGrid = comGrid + "_";
+          comGrid = comGrid + "-";
       }
       if ((i+1)%3==0){
         comGrid = comGrid + "\n";
