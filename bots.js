@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const api = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+const api = "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
@@ -41,12 +41,14 @@ bot.on("message", async message => {
   if (cmd === `${prefix}quote`){
       snekfetch.get(api).then(r => {
           let body = r.body;
-          let entry = body.find(post => !isNaN(post.ID));
-          //let quote = entry.content.toString()
+          //let entry = body.find(post => !isNaN(post.ID));
+          let entry = body.find(post => isNaN(post.quoteAuthor));
           let embed = new Discord.RichEmbed()
-              .setAuthor(entry.title)
-              .setDescription(entry.content.toString().slice(3,-6).replace("\u2026","...").replace("&#8217;","\'").replace("&#8220;","\"").replace("&#8221;","\""))
-           message.channel.send({embed: embed});
+              //.setAuthor(entry.title)
+              .setAuthor(entry.quoteAuthor)
+              //.setDescription(entry.content.toString().slice(3,-6).replace("\u2026","...").replace("&#8217;","\'").replace("&#8220;","\"").replace("&#8221;","\""))
+              .setDescription(entry.quoteTest)
+          message.channel.send({embed: embed});
       });
   }
 });
