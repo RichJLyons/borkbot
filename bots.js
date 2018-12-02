@@ -24,7 +24,7 @@ bot.on("message", async message => {
   if (cmd === `${prefix}help`){
     let comGrid = "\n";
     for (var i in commands) {
-      comGrid = comGrid + "/"+commands[i]+"\t";
+      comGrid = comGrid + "/"+commands[i]+"\t\t";
       if ((i+1)%3==0){
         comGrid = comGrid + "\n";
       }
