@@ -24,10 +24,10 @@ bot.on("message", async message => {
   if (cmd === `${prefix}help`){
     let comGrid = "\n";
     for (var i in commands) {
-      comGrid = comGrid + "/"+commands[i];
-      for (var j=1; j < (20-commands[i].length);j++) {
-          comGrid = comGrid + " ";
-      }
+      comGrid = comGrid + "/"+commands[i]+"\t\t";
+      //for (var j=1; j < (20-commands[i].length);j++) {
+      //    comGrid = comGrid + " ";
+      //}
       if ((i+1)%3==0){
         comGrid = comGrid + "\n";
       }
