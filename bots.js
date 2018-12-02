@@ -41,14 +41,15 @@ bot.on("message", async message => {
   if (cmd === `${prefix}quote`){
       snekfetch.get(api).then(r => {
           let body = r.body;
+          console.log(body);
           //let entry = body.find(post => !isNaN(post.ID));
-          let entry = body.find(post => isNaN(post.quoteAuthor));
-          let embed = new Discord.RichEmbed()
+          //let entry = body.find(post => isNaN(post.quoteAuthor));
+          //let embed = new Discord.RichEmbed()
               //.setAuthor(entry.title)
-              .setAuthor(entry.quoteAuthor)
+          //    .setAuthor(entry.quoteAuthor)
               //.setDescription(entry.content.toString().slice(3,-6).replace("\u2026","...").replace("&#8217;","\'").replace("&#8220;","\"").replace("&#8221;","\""))
-              .setDescription(entry.quoteTest)
-          message.channel.send({embed: embed});
+          //    .setDescription(entry.quoteTest)
+          //message.channel.send({embed: embed});
       });
   }
 });
