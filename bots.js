@@ -42,9 +42,10 @@ bot.on("message", async message => {
       snekfetch.get(api).then(r => {
           let body = r.body;
           let entry = body.find(post => !isNaN(post.ID));
+          //let quote = entry.content.toString()
           let embed = new Discord.RichEmbed()
               .setAuthor(entry.title)
-              .setDescription(entry.content.toString.substring(3,7))
+              .setDescription(entry.content.toString().substring(3,7))
            message.channel.send({embed: embed});
       });
   }
