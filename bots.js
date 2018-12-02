@@ -4,6 +4,7 @@ const api = "https://talaikis.com/api/quotes/random/";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
+var commands = ["ping","ding","pika","bork","people","resolve","quote","spidey"];
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -20,6 +21,9 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
 
+  if (cmd === `${prefix}help`){
+    message.channel.send("Pong!");
+  }
   if (cmd === `${prefix}ping`){
     message.channel.send("Pong!");
   }
@@ -41,15 +45,14 @@ bot.on("message", async message => {
   if (cmd === `${prefix}quote`){
       snekfetch.get(api).then(r => {
           let entry = r.body;
-          //let entry = body.find(post => isNaN(post.author));
           let embed = new Discord.RichEmbed()
               .setAuthor(entry.author)
-              .setDescription(entry.quote)
+              .setDescription(entry.quote);
           message.channel.send({embed: embed});
           //console.log(body);
       });
   }
-  if (cmd === `${prefix}spiderman`){
+  if (cmd === `${prefix}spidey`){
     var files = fs.readdirSync('./spider-man/Memes/')
     let chosenFile = files[Math.floor(Math.random()*files.length)] 
     message.channel.send(new Discord.Attachment('./spider-man/Memes/'+chosenFile)).catch(console.error);
