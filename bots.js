@@ -40,13 +40,13 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}quote`){
       snekfetch.get(api).then(r => {
-          let body = r.body;
+          let entry = r.body;
           //let entry = body.find(post => isNaN(post.author));
-          //let embed = new Discord.RichEmbed()
-          //    .setAuthor(entry.author)
-          //    .setDescription(entry.quote)
-          //message.channel.send({embed: embed});
-          console.log(body);
+          let embed = new Discord.RichEmbed()
+              .setAuthor(entry.author)
+              .setDescription(entry.quote)
+          message.channel.send({embed: embed});
+          //console.log(body);
       });
   }
 });
