@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const api = "https://talaikis.com/api/quotes/random/";
 const snekfetch = require("snekfetch");
-const randomFile = require("select-random-file");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
 
