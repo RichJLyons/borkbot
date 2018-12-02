@@ -45,7 +45,7 @@ bot.on("message", async message => {
           //let quote = entry.content.toString()
           let embed = new Discord.RichEmbed()
               .setAuthor(entry.title)
-              .setDescription(entry.content.toString().substring(3,7))
+              .setDescription(entry.content.substring(3,7))
            message.channel.send({embed: embed});
       });
   }
