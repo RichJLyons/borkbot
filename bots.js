@@ -22,7 +22,11 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
   if (cmd === `${prefix}help`){
-    message.channel.send("Pong!");
+    let comGrid = "";
+    for (var i in commands) {
+      comGrid = comGrid + i+"\n";
+    }
+    message.channel.send("Here are the current commands: "+comGrid);
   }
   if (cmd === `${prefix}ping`){
     message.channel.send("Pong!");
