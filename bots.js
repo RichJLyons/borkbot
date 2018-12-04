@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const api = "https://talaikis.com/api/quotes/random/";
+const quoteApi = "https://talaikis.com/api/quotes/random/";
+const rlApi = "https://www.reddit.com/r/RocketLeague/.json";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
-var commands = ["ping","ding","pika","bork","people","resolve","quote","pups","free"];
+var commands = ["ping","ding","pika","bork","people","resolve","quote","pups","free","rl"];
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -58,7 +59,7 @@ bot.on("message", async message => {
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
   if (cmd === `${prefix}quote`){
-      snekfetch.get(api).then(r => {
+      snekfetch.get(quoteApi).then(r => {
           let entry = r.body;
           let embed = new Discord.RichEmbed()
               .setAuthor(entry.author)
@@ -67,6 +68,16 @@ bot.on("message", async message => {
           //console.log(body);
       });
   }
+//   if (cmd === `${prefix}rl`){
+//       snekfetch.get(rlApi).then(r => {
+//           let entry = r.body;
+//           let embed = new Discord.RichEmbed()
+//               .setAuthor(entry.author)
+//               .setDescription(entry.quote);
+//           message.channel.send({embed: embed});
+//           //console.log(body);
+//       });
+//   }
   if (cmd === `${prefix}pups`){
     var files = fs.readdirSync('./photos/puppy/')
     let chosenFile = files[Math.floor(Math.random()*files.length)] 
