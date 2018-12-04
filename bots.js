@@ -72,6 +72,10 @@ bot.on("message", async message => {
     let chosenFile = files[Math.floor(Math.random()*files.length)] 
     message.channel.send(new Discord.Attachment('./photos/puppy/'+chosenFile)).catch(console.error);
   }
+  if (cmd === `${prefix}free`){
+    message.channel.send(new Discord.Attachment('./photos/Tim.gif')).catch(console.error);
+  }
+  
 });
 
 bot.login(process.env.token);
