@@ -68,17 +68,17 @@ bot.on("message", async message => {
           //console.log(body);
       });
   }
-//   if (cmd === `${prefix}rl`){
-//       snekfetch.get(rlApi).query({ limit: 10 }).then(r => {
-//           let entry = r.body;
+  if (cmd === `${prefix}rl`){
+      snekfetch.get(rlApi).query({ limit: 10 }).then(r => {
+          let entry = r.body;
 //           const allowed = entry.data.children.filter(post => !post.data.over_18);
 //           const randomnumber = Math.floor(Math.random() * allowed.length)
 //           let embed = new Discord.RichEmbed()
 //               .setImage(allowed[randomnumber].data.url);
 //           message.channel.send({embed: embed});
-//           //console.log(body);
-//       });
-//   }
+          console.log(entry[0]);
+      });
+  }
   if (cmd === `${prefix}pups`){
     var files = fs.readdirSync('./photos/puppy/')
     let chosenFile = files[Math.floor(Math.random()*files.length)] 
