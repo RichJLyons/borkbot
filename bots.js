@@ -71,12 +71,13 @@ bot.on("message", async message => {
   if (cmd === `${prefix}rl`){
       snekfetch.get(rlApi).then(r => {
           for (var i=0; i<r.body.data.children.length; i++){
+            console.log(i)
 //              if (r.body.data.children[i].data.media =='gfycat.com'){
 //                 console.log(r.body.data.children[i].data.url);
 //                 message.channel.send(r.body.data.children[i].data.url).catch(console.error);
 //              }
           }
-          console.log(r.body.data.children[1].data.media);
+          //console.log(r.body.data.children[1].data.media);
           //message.channel.send(r.body.data.children[2].data.url).catch(console.error);
       });
   }
