@@ -78,7 +78,6 @@ bot.on("message", async message => {
                 }
             }
           }
-          console.log(r.body.data.children[rand[Math.floor(Math.random() * rand.length)]].data.media.type);
           message.channel.send(r.body.data.children[rand[Math.floor(Math.random() * rand.length)]].data.url).catch(console.error);
           
       });
