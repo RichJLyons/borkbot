@@ -72,7 +72,7 @@ bot.on("message", async message => {
       snekfetch.get(rlApi).then(r => {
           for (var i=0; i<r.body.data.children.length; i++){
             if (r.body.data.children[i].data.media != null){
-                if (r.body.data.children[i].data.media =='gfycat.com'){
+                if (r.body.data.children[i].data.media.type =='gfycat.com'){
                     console.log(r.body.data.children[i].data.media.type);
                     message.channel.send(r.body.data.children[i].data.url).catch(console.error);
                     break;
