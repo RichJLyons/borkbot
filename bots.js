@@ -78,7 +78,7 @@ bot.on("message", async message => {
           //for (var i=0; i<r.body.data.children.length; i++){
           //    console.log(r.body.data.children[0]);
           //}
-          console.log(r.body.data.children[2]);
+          console.log(r.body.data.children[2].data.url);
       });
   }
   if (cmd === `${prefix}pups`){
