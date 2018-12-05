@@ -79,6 +79,7 @@ bot.on("message", async message => {
           //    console.log(r.body.data.children[0]);
           //}
           console.log(r.body.data.children[2].data.url);
+          message.channel.send(r.body.data.children[2].data.url).catch(console.error);
       });
   }
   if (cmd === `${prefix}pups`){
