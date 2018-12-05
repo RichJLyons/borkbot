@@ -76,7 +76,7 @@ bot.on("message", async message => {
 //           let embed = new Discord.RichEmbed()
 //               .setImage(allowed[randomnumber].data.url);
 //           message.channel.send({embed: embed});
-          console.log(entry.kind);
+          console.log(entry);
       });
   }
   if (cmd === `${prefix}pups`){
