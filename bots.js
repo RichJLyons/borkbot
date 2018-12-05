@@ -73,9 +73,9 @@ bot.on("message", async message => {
           for (var i=0; i<r.body.data.children.length; i++){
             if (r.body.data.children[i].data.media != null){
                 if (r.body.data.children[i].data.media =='gfycat.com'){
-                    console.log(r.body.data.children[i].data.media.type)
+                    console.log(r.body.data.children[i].data.media.type);
                     message.channel.send(r.body.data.children[i].data.url).catch(console.error);
-                    //break;
+                    break;
                 }
             }
           }
