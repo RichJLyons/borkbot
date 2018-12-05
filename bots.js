@@ -71,7 +71,7 @@ bot.on("message", async message => {
   if (cmd === `${prefix}rl`){
       snekfetch.get(rlApi).then(r => {
           for (var i=0; i<r.body.data.children.length; i++){
-             if (r.body.data.children.data.media =='gfycat.com'){
+             if (r.body.data.children[i].data.media =='gfycat.com'){
                 console.log(r.body.data.children[i].data.url);
                 message.channel.send(r.body.data.children[i].data.url).catch(console.error);
              }
