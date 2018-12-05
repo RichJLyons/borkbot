@@ -69,14 +69,14 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}rl`){
-      snekfetch.get(rlApi).query({ limit: 10 }).then(r => {
+      snekfetch.get(rlApi).then(r => {
           let entry = r.body;
 //           const allowed = entry.data.children.filter(post => !post.data.over_18);
 //           const randomnumber = Math.floor(Math.random() * allowed.length)
 //           let embed = new Discord.RichEmbed()
 //               .setImage(allowed[randomnumber].data.url);
 //           message.channel.send({embed: embed});
-          console.log(entry[0]);
+          console.log(entry.kind);
       });
   }
   if (cmd === `${prefix}pups`){
