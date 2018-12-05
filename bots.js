@@ -76,7 +76,7 @@ bot.on("message", async message => {
 //                 message.channel.send(r.body.data.children[i].data.url).catch(console.error);
 //              }
           }
-          console.log(r.body.data.children[2].data.media);
+          console.log(r.body.data.children[1].data.media);
           //message.channel.send(r.body.data.children[2].data.url).catch(console.error);
       });
   }
