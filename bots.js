@@ -69,11 +69,12 @@ bot.on("message", async message => {
       });
   }
 //   if (cmd === `${prefix}rl`){
-//       snekfetch.get(rlApi).then(r => {
+//       snekfetch.get(rlApi).query({ limit: 10 }).then(r => {
 //           let entry = r.body;
+//           const allowed = entry.data.children.filter(post => !post.data.over_18);
+//           const randomnumber = Math.floor(Math.random() * allowed.length)
 //           let embed = new Discord.RichEmbed()
-//               .setAuthor(entry.author)
-//               .setDescription(entry.quote);
+//               .setImage(allowed[randomnumber].data.url);
 //           message.channel.send({embed: embed});
 //           //console.log(body);
 //       });
