@@ -70,15 +70,17 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}rl`){
       snekfetch.get(rlApi).then(r => {
+          let rand = [];
           for (var i=0; i<r.body.data.children.length; i++){
             if (r.body.data.children[i].data.media != null){
                 if (r.body.data.children[i].data.media.type =='gfycat.com'){
-                    console.log(r.body.data.children[i].data.media.type);
-                    message.channel.send(r.body.data.children[i].data.url).catch(console.error);
-                    break;
+                    rand.push(i)    
                 }
             }
           }
+          console.log(r.body.data.children[rand[Math.floor(Math.random() * rand.length)]].data.media.type);
+          message.channel.send(r.body.data.children[rand[Math.floor(Math.random() * rand.length)]].data.url).catch(console.error);
+          
       });
   }
   if (cmd === `${prefix}pups`){
