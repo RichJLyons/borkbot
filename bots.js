@@ -70,16 +70,14 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}rl`){
       snekfetch.get(rlApi).then(r => {
-//           const allowed = entry.data.children.filter(post => !post.data.over_18);
-//           const randomnumber = Math.floor(Math.random() * allowed.length)
-//           let embed = new Discord.RichEmbed()
-//               .setImage(allowed[randomnumber].data.url);
-//           message.channel.send({embed: embed});
-          //for (var i=0; i<r.body.data.children.length; i++){
-          //    console.log(r.body.data.children[0]);
-          //}
-          console.log(r.body.data.children[2].data.url);
-          message.channel.send(r.body.data.children[2].data.url).catch(console.error);
+          for (var i=0; i<r.body.data.children.length; i++){
+             if (r.body.data.children.data.media =='gfycat.com'){
+                console.log(r.body.data.children[i].data.url);
+                message.channel.send(r.body.data.children[i].data.url).catch(console.error);
+             }
+          }
+          //console.log(r.body.data.children[2].data.url);
+          //message.channel.send(r.body.data.children[2].data.url).catch(console.error);
       });
   }
   if (cmd === `${prefix}pups`){
