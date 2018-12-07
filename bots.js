@@ -82,7 +82,8 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}pups`){
-      pupsApi = pupsApi+args[0]+"/.json"
+      pupsApi = pupsApi+args[0]+"/.json";
+      message.channel.send(pupsApi).catch(console.error);
       snekfetch.get(pupsApi).then(r => {
           let rand = [];
           for (var i=0; i<r.body.data.children.length; i++){
