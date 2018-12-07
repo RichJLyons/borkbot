@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const quoteApi = "https://talaikis.com/api/quotes/random/";
 const rlApi = "https://www.reddit.com/r/RocketLeague/.json";
-const pupsApi = "https://www.reddit.com/r/corgi/.json";
+const pupsApi = "https://www.reddit.com/r/";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
@@ -82,10 +82,7 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}pups`){
-//     var files = fs.readdirSync('./photos/puppy/')
-//     let chosenFile = files[Math.floor(Math.random()*files.length)] 
-//     message.channel.send(new Discord.Attachment('./photos/puppy/'+chosenFile)).catch(console.error);
-      snekfetch.get(pupsApi).then(r => {
+      snekfetch.get(pupsApi+args.split(" ")[0]+"/.json").then(r => {
           let rand = [];
           for (var i=0; i<r.body.data.children.length; i++){
             if (r.body.data.children[i].data.post_hint == 'image'){
