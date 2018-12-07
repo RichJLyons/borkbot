@@ -21,7 +21,7 @@ bot.on("message", async message => {
   let prefix = '/'; //identifier of command for bot to look for
   let messageArray = message.content.split(" "); //split entire message by spaces
   let cmd = messageArray[0]; //command has to be first item in message
-  let args = messageArray.splice(0,1).join(" "); // join together rest of message for later parsing
+  let args = messageArray.splice(0,1); // join together rest of message for later parsing
 
   if (cmd === `${prefix}help`){
     let comGrid = "\n";
@@ -82,7 +82,7 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}pups`){
-      snekfetch.get(pupsApi+args.split(" ")[0]+"/.json").then(r => {
+      snekfetch.get(pupsApi+args[0]+"/.json").then(r => {
           let rand = [];
           for (var i=0; i<r.body.data.children.length; i++){
             if (r.body.data.children[i].data.post_hint == 'image'){
