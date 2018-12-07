@@ -83,9 +83,9 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}pups`){
       if (typeof args[0] !== 'undefined'){
-          pups = pupsApi+args[0]+"/.json"
+          var pups = pupsApi+args[0]+"/.json"
       } else {
-          pups = pupsApi+"puppies/.json"
+          var pups = pupsApi+"puppies/.json"
       }
       snekfetch.get(pups).then(r => {
           let rand = [];
