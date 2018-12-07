@@ -83,11 +83,11 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}pups`){
       if (typeof args[0] !== 'undefined'){
-          pupsApi = pupsApi+args[0]+"/.json"
+          pups = pupsApi+args[0]+"/.json"
       } else {
-          pupsApi = pupsApi+"puppies/.json"
+          pups = pupsApi+"puppies/.json"
       }
-      snekfetch.get(pupsApi).then(r => {
+      snekfetch.get(pups).then(r => {
           let rand = [];
           for (var i=0; i<r.body.data.children.length; i++){
             if (r.body.data.children[i].data.post_hint == 'image'){
