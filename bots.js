@@ -2,10 +2,11 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const quoteApi = "https://talaikis.com/api/quotes/random/";
 const rlApi = "https://www.reddit.com/r/RocketLeague/.json";
+const pupsApi = "https://www.reddit.com/r/samoyeds/.json";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
-var commands = ["ping","ding","pika","bork","people","resolve","quote","pups","free","rl"];
+var commands = ["ping","ding","pika","bork","people","resolve","pups","free","rl"];
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -17,10 +18,10 @@ bot.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
 
-  let prefix = '/';
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
+  let prefix = '/'; //identifier of command for bot to look for
+  let messageArray = message.content.split(" "); //split entire message by spaces
+  let cmd = messageArray[0]; //command has to be first item in message
+  let args = messageArray.shift().join(" "); // join together rest of message for later parsing
 
   if (cmd === `${prefix}help`){
     let comGrid = "\n";
@@ -37,7 +38,6 @@ bot.on("message", async message => {
     const embed = new Discord.RichEmbed()
       .setTitle("Here are the current commands:")
       .setDescription(comGrid);
-    //message.channel.send("Here are the current commands: "+comGrid);
     message.channel.send({embed});
   }
   if (cmd === `${prefix}ping`){
@@ -58,16 +58,16 @@ bot.on("message", async message => {
   if (cmd === `${prefix}resolve`){
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
-  if (cmd === `${prefix}quote`){
-      snekfetch.get(quoteApi).then(r => {
-          let entry = r.body;
-          let embed = new Discord.RichEmbed()
-              .setAuthor(entry.author)
-              .setDescription(entry.quote);
-          message.channel.send({embed: embed});
-          //console.log(body);
-      });
-  }
+//   if (cmd === `${prefix}quote`){
+//       snekfetch.get(quoteApi).then(r => {
+//           let entry = r.body;
+//           let embed = new Discord.RichEmbed()
+//               .setAuthor(entry.author)
+//               .setDescription(entry.quote);
+//           message.channel.send({embed: embed});
+//           //console.log(body);
+//       });
+//   }
   if (cmd === `${prefix}rl`){
       snekfetch.get(rlApi).then(r => {
           let rand = [];
@@ -79,13 +79,21 @@ bot.on("message", async message => {
             }
           }
           message.channel.send(r.body.data.children[rand[Math.floor(Math.random() * rand.length)]].data.url).catch(console.error);
-          
       });
   }
   if (cmd === `${prefix}pups`){
-    var files = fs.readdirSync('./photos/puppy/')
-    let chosenFile = files[Math.floor(Math.random()*files.length)] 
-    message.channel.send(new Discord.Attachment('./photos/puppy/'+chosenFile)).catch(console.error);
+//     var files = fs.readdirSync('./photos/puppy/')
+//     let chosenFile = files[Math.floor(Math.random()*files.length)] 
+//     message.channel.send(new Discord.Attachment('./photos/puppy/'+chosenFile)).catch(console.error);
+      snekfetch.get(pupsApi).then(r => {
+          let rand = [];
+          for (var i=0; i<r.body.data.children.length; i++){
+            if (r.body.data.children[i].data.post_hint == 'image'){
+                rand.push(i)    
+             }
+          }
+          message.channel.send(r.body.data.children[rand[Math.floor(Math.random() * rand.length)]].data.url).catch(console.error); 
+      });
   }
   if (cmd === `${prefix}free`){
     message.channel.send(new Discord.Attachment('./photos/Tim.gif')).catch(console.error);
