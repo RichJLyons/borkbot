@@ -82,12 +82,11 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}pups`){
-      if (args[0].length > 0){
+      if (args[0] !== 'undefined'){
           pupsApi = pupsApi+args[0]+"/.json"
       } else {
           pupsApi = pupsApi+"puppies/.json"
       }
-      
       snekfetch.get(pupsApi).then(r => {
           let rand = [];
           for (var i=0; i<r.body.data.children.length; i++){
