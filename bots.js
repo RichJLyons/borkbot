@@ -82,7 +82,7 @@ bot.on("message", async message => {
       });
   }
   if (cmd === `${prefix}pups`){
-      if (args[0] !== 'undefined'){
+      if (typeof args[0] !== 'undefined'){
           pupsApi = pupsApi+args[0]+"/.json"
       } else {
           pupsApi = pupsApi+"puppies/.json"
