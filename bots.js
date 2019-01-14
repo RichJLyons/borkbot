@@ -14,7 +14,7 @@ bot.on("ready", async () => {
   let d = new Date();
   let n = d.getHours();
   let nn = d.getMinutes();
-  if (n === 18) bot.channels.get('519900918703980552').send('Hello here!');
+  //if (n === 18) bot.channels.get('519900918703980552').send('Hello here!');
 });
 
 bot.on("message", async message => {
