@@ -11,6 +11,13 @@ var commands = ["ping","ding","pika","bork","people","resolve","pups","free","rl
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity(`What is my purpose?`);
+  setTimeout(function(){
+    message.channel.send(items[Math.floor(Math.random()*items.length)]);
+    var dayMillseconds = 1000 * 60 * 60 * 24;
+    setInterval(function(){ // repeat this every 24 hours
+      message.channel.send(items[Math.floor(Math.random()*items.length)]);
+    }, dayMillseconds)
+  }, leftToEight());
 });
 
 bot.on("message", async message => {
@@ -101,16 +108,6 @@ bot.on("message", async message => {
     message.channel.send(new Discord.Attachment('./photos/Tim.gif')).catch(console.error);
   }
   
-});
-
-bot.on('ready', () => {
-  setTimeout(function(){
-    message.channel.send(items[Math.floor(Math.random()*items.length)]);
-    var dayMillseconds = 1000 * 60 * 60 * 24;
-    setInterval(function(){ // repeat this every 24 hours
-      message.channel.send(items[Math.floor(Math.random()*items.length)]);
-    }, dayMillseconds)
-  }, leftToEight());
 });
 
 function leftToEight(){
