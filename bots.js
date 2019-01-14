@@ -8,14 +8,14 @@ var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
 var commands = ["ping","ding","pika","bork","people","resolve","pups","free","rl"];
 
-bot.on("ready", async () => {
+bot.on("ready", async message => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity(`What is my purpose?`);
   setTimeout(function(){
-    channel.send(items[Math.floor(Math.random()*items.length)]);
+    message.channel.send(items[Math.floor(Math.random()*items.length)]);
     var dayMillseconds = 1000 * 60 * 60 * 24;
     setInterval(function(){ // repeat this every 24 hours
-      channel.send(items[Math.floor(Math.random()*items.length)]);
+      message.channel.send(items[Math.floor(Math.random()*items.length)]);
     }, dayMillseconds)
   }, leftToEight());
 });
