@@ -14,7 +14,7 @@ bot.on("ready", async () => {
   let d = new Date();
   let n = d.getHours();
   let nn = d.getMinutes();
-  if (n === 12 && nn === 38){
+  if (n === 12){
     bot.channels.get('519900918703980552').send('Hello here!');
   }
 });
