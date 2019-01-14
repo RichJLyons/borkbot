@@ -11,10 +11,6 @@ var commands = ["ping","ding","pika","bork","people","resolve","pups","free","rl
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity(`What is my purpose?`);
-  let d = new Date();
-  let n = d.getHours();
-  let nn = d.getMinutes();
-  //if (n === 18) bot.channels.get('519900918703980552').send('Hello here!');
 });
 
 bot.on("message", async message => {
@@ -107,10 +103,11 @@ bot.on("message", async message => {
   
 });
 
-function leftToEight(){
-    var d = new Date();
-    return (-d + d.setHours(8,0,0,0));
-}
+//Resolve everyday at 8am
+var schedule = require('node-schedule');
+var j = schedule.scheduleJob('* * 19 * * *', function(){
+  bot.channels.get('519900918703980552').send('Hello here!');
+});
 
 
 bot.login(process.env.token);
