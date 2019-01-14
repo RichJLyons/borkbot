@@ -58,13 +58,6 @@ bot.on("message", async message => {
   if (cmd === `${prefix}resolve`){
     message.channel.send(items[Math.floor(Math.random()*items.length)]);
   }
-  setTimeout(function(){
-    message.channel.send(items[Math.floor(Math.random()*items.length)]);
-    var dayMillseconds = 1000 * 60 * 60 * 24;
-    setInterval(function(){ // repeat this every 24 hours
-      message.channel.send(items[Math.floor(Math.random()*items.length)]);
-    }, dayMillseconds)
-  }, leftToEight());
 //   if (cmd === `${prefix}quote`){
 //       snekfetch.get(quoteApi).then(r => {
 //           let entry = r.body;
@@ -108,6 +101,16 @@ bot.on("message", async message => {
     message.channel.send(new Discord.Attachment('./photos/Tim.gif')).catch(console.error);
   }
   
+});
+
+bot.on('ready', () => {
+  setTimeout(function(){
+    message.channel.send(items[Math.floor(Math.random()*items.length)]);
+    var dayMillseconds = 1000 * 60 * 60 * 24;
+    setInterval(function(){ // repeat this every 24 hours
+      message.channel.send(items[Math.floor(Math.random()*items.length)]);
+    }, dayMillseconds)
+  }, leftToEight());
 });
 
 function leftToEight(){
