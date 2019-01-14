@@ -12,10 +12,10 @@ bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity(`What is my purpose?`);
   setTimeout(function(){
-    message.channel.send(items[Math.floor(Math.random()*items.length)]);
+    channel.send(items[Math.floor(Math.random()*items.length)]);
     var dayMillseconds = 1000 * 60 * 60 * 24;
     setInterval(function(){ // repeat this every 24 hours
-      message.channel.send(items[Math.floor(Math.random()*items.length)]);
+      channel.send(items[Math.floor(Math.random()*items.length)]);
     }, dayMillseconds)
   }, leftToEight());
 });
