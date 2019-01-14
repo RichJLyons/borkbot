@@ -105,7 +105,7 @@ bot.on("message", async message => {
 
 //Resolve everyday at 8am
 var schedule = require('node-schedule');
-var j = schedule.scheduleJob('0 0 19 * * *', function(){
+var j = schedule.scheduleJob('0 5 19 * * *', function(){
   bot.channels.get('519900918703980552').send('Hello here!');
 });
 
