@@ -11,7 +11,7 @@ var commands = ["ping","ding","pika","bork","people","resolve","pups","free","rl
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity(`What is my purpose?`);
-  bot.channels.get('general').send('Hello here!');
+  bot.channels.get('519900918703980552').send('Hello here!');
 });
 
 bot.on("message", async message => {
