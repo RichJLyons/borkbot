@@ -13,10 +13,9 @@ bot.on("ready", async () => {
   bot.user.setActivity(`What is my purpose?`);
   let d = new Date();
   let n = d.getHours();
+  console.log(n);
   let nn = d.getMinutes();
-  if (n === 12){
-    bot.channels.get('519900918703980552').send('Hello here!');
-  }
+  bot.channels.get('519900918703980552').send('Hello here!');
 });
 
 bot.on("message", async message => {
