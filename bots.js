@@ -8,10 +8,10 @@ var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
 var commands = ["ping","ding","pika","bork","people","resolve","pups","free","rl"];
 
-bot.on("ready", async () => {
+bot.on("ready", client => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity(`What is my purpose?`);
-  bot.channels.get('general').send('Hello here!')
+  client.channels.get('general').send('Hello here!')
 });
 
 bot.on("message", async message => {
