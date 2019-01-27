@@ -102,9 +102,10 @@ bot.on("message", async message => {
   }
   if (cmd === `${prefix}roll`){
     let rolls = args.split("d");
-    for (var i=0; i<rolls[0]; i++){
-      message.channel.send(Math.floor(Math.random()*(rolls[1]) + 1)).catch(console.error);
-    }
+    message.channel.send(rolls[0]).catch(console.error);
+    #for (var i=0; i<rolls[0]; i++){
+    #  message.channel.send(Math.floor(Math.random()*(rolls[1]) + 1)).catch(console.error);
+    #}
   }
   
 });
