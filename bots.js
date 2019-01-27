@@ -100,6 +100,12 @@ bot.on("message", async message => {
   if (cmd === `${prefix}free`){
     message.channel.send(new Discord.Attachment('./photos/Tim.gif')).catch(console.error);
   }
+  if (cmd === `${prefix}roll`){
+    let rolls = args.split("d");
+    for (var i=0; i<rolls[0]; i++){
+      message.channel.send(Math.floor(Math.random()*(rolls[1]) + 1)).catch(console.error);
+    }
+  }
   
 });
 
