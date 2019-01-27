@@ -101,7 +101,7 @@ bot.on("message", async message => {
     message.channel.send(new Discord.Attachment('./photos/Tim.gif')).catch(console.error);
   }
   if (cmd === `${prefix}roll`){
-    let rolls = args.split("d");
+    //let rolls = args.split("d");
     message.channel.send(args).catch(console.error);
     //for (var i=0; i<rolls[0]; i++){
     //  message.channel.send(Math.floor(Math.random()*(rolls[1]) + 1)).catch(console.error);
