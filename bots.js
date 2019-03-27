@@ -114,18 +114,17 @@ bot.on("message", async message => {
   }
   
   if (cmd === `${prefix}newquote`){
-    var GitHub = require('./github');
-    var config = {
-        username: 'RichJLyons',
-        password: '!1reccoS', // Either your password or an authentication token if two-factor authentication is enabled
-        auth: 'basic',
-        repository: 'borkbot',
-        branchName: 'master'
-    };
-    var gitHub = new GitHub(config);
-    this.repository = gitHub.getRepo(config.username, config.repository);
+    var Github = require('github-api');
+    // Creates a new instance of the Github object exposed by Github.js
+    var github = new Github({
+      username: 'RichJLyons',
+      password: '!1reccoS',
+      auth: 'basic'
+    });
     
-    this.repository.write(
+    var repository = github.getRepo('RichJLyons', 'borkbot');
+
+    repository.write(
        'master', // e.g. 'master'
        './quotes.txt', // e.g. 'blog/index.md'
        args[0]+'\n', // e.g. 'Hello world, this is my new content'
