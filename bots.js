@@ -138,6 +138,11 @@ bot.on("message", async message => {
     );
   }
   
+  if (cmd === `${prefix}quote`){
+      var randquote = quotes.split("\n");
+      message.channel.send(randquote[Math.floor(Math.random()*randquote.length)]);
+  }
+  
 });
 
 //Resolve everyday at 8am
