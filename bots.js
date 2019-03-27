@@ -123,8 +123,9 @@ bot.on("message", async message => {
         branchName: 'master'
     };
     var gitHub = new GitHub(config);
+    this.repository = gitHub.getRepo(config.username, config.repository);
     
-    gitHub.write(
+    this.repository.write(
        'master', // e.g. 'master'
        './quotes.txt', // e.g. 'blog/index.md'
        args[0]+'\n', // e.g. 'Hello world, this is my new content'
