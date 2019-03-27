@@ -123,11 +123,15 @@ bot.on("message", async message => {
     });
     
     var repository = github.getRepo('RichJLyons', 'borkbot');
+    var quote = ''
+    for (var i=0; i<args.length; i++){
+      quote = quote + args[i] + ' ';
+    }
 
     repository.write(
        'master', // e.g. 'master'
        'quotes.txt', // e.g. 'blog/index.md'
-       args+'\n', // e.g. 'Hello world, this is my new content'
+       quote+'\n', // e.g. 'Hello world, this is my new content'
        'New Quote Added', // e.g. 'Created new index'
        function(err) {}
     );
