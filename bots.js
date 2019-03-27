@@ -113,6 +113,26 @@ bot.on("message", async message => {
     message.channel.send(new Discord.Attachment('./photos/Alien_Reactions/'+chosenFile)).catch(console.error);
   }
   
+  if (cmd === `${prefix}newquote`){
+    var GitHub = require('./github');
+    var config = {
+        username: 'RichJLyons',
+        password: '!1reccoS', // Either your password or an authentication token if two-factor authentication is enabled
+        auth: 'basic',
+        repository: 'borkbot',
+        branchName: 'master'
+    };
+    var gitHub = new GitHub(config);
+    
+    gitHub.write(
+       'master', // e.g. 'master'
+       './quotes.txt', // e.g. 'blog/index.md'
+       args[0]+'\n', // e.g. 'Hello world, this is my new content'
+       'New Quote Added', // e.g. 'Created new index'
+       function(err) {}
+    );
+  }
+  
 });
 
 //Resolve everyday at 8am
