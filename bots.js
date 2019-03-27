@@ -6,6 +6,7 @@ var pupsApi = "https://www.reddit.com/r/";
 const snekfetch = require("snekfetch");
 var fs = require('fs');
 var items = fs.readFileSync('DD.txt').toString().split(";");
+var quotes = fs.readFileSync('quotes.txt').toString();
 var commands = ["ping","ding","pika","bork","people","resolve","pups","free","rl"];
 
 bot.on("ready", async () => {
@@ -131,7 +132,7 @@ bot.on("message", async message => {
     repository.write(
        'master', // e.g. 'master'
        'quotes.txt', // e.g. 'blog/index.md'
-       quote+'\n', // e.g. 'Hello world, this is my new content'
+       quotes + '\n'+ quote+'\n', // e.g. 'Hello world, this is my new content'
        'New Quote Added', // e.g. 'Created new index'
        function(err) {}
     );
