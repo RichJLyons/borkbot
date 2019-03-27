@@ -107,6 +107,12 @@ bot.on("message", async message => {
     }
   }
   
+  if (cmd === `${prefix}alien`){
+    var files = fs.readdirSync('./photos/Alien_Reactions/')
+    let chosenFile = files[Math.floor(Math.random()*files.length)] 
+    message.channel.send(new Discord.Attachment('./photos/Alien_Reactions/'+chosenFile)).catch(console.error);
+  }
+  
 });
 
 //Resolve everyday at 8am
