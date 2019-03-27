@@ -114,7 +114,7 @@ bot.on("message", async message => {
   }
   
   if (cmd === `${prefix}newquote`){ 
-     var stream = fs.createWriteStream("append.txt", {flags:'a'});
+     var stream = fs.createWriteStream("quotes.txt", {flags:'a'});
      stream.write(args[0] + "\n");
      stream.end();
   }
