@@ -127,7 +127,7 @@ bot.on("message", async message => {
     repository.write(
        'master', // e.g. 'master'
        'quotes.txt', // e.g. 'blog/index.md'
-       args[0]+'\n', // e.g. 'Hello world, this is my new content'
+       args+'\n', // e.g. 'Hello world, this is my new content'
        'New Quote Added', // e.g. 'Created new index'
        function(err) {}
     );
