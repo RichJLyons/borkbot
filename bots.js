@@ -113,12 +113,6 @@ bot.on("message", async message => {
     message.channel.send(new Discord.Attachment('./photos/Alien_Reactions/'+chosenFile)).catch(console.error);
   }
   
-  if (cmd === `${prefix}newquote`){ 
-     var stream = fs.createWriteStream("quotes.txt", {flags:'a'});
-     stream.write(args[0] + "\n");
-     stream.end();
-  }
-  
 });
 
 //Resolve everyday at 8am
