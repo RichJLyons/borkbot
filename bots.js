@@ -143,6 +143,10 @@ bot.on("message", async message => {
       message.channel.send(randquote[Math.floor(Math.random()*randquote.length)]);
   }
   
+  if (cmd === `${prefix}Tom`){
+    message.channel.send(new Discord.Attachment('./photos/Tom.png')).catch(console.error);
+  }
+  
 });
 
 //Resolve everyday at 8am
