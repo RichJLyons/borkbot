@@ -147,6 +147,10 @@ bot.on("message", async message => {
     message.channel.send(new Discord.Attachment('./photos/Tom.png')).catch(console.error);
   }
   
+  if (cmd === `${prefix}Jerry`){
+    message.channel.send(new Discord.Attachment('./photos/Jerry.jpg')).catch(console.error);
+  }
+  
 });
 
 //Resolve everyday at 8am
