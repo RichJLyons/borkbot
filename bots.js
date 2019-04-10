@@ -148,7 +148,7 @@ bot.on("message", async message => {
   }
   
   if (cmd === `${prefix}Jerry`){
-    message.channel.send(new Discord.Attachment('./photos/Jerry.jpg')).catch(console.error);
+    message.channel.send(new Discord.Attachment('./photos/jerry.jpg')).catch(console.error);
   }
   
 });
